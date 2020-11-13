@@ -1,60 +1,48 @@
-# Python code to illustrate parsing of XML files
-# importing the required modules 
-import csv
 import xml.etree.ElementTree as ET
+import csv
 
+tree = ET.parse('../xml/people.xml')
+root = tree.getroot()
 
-def parseXML(xmlFile):
-    # create element tree object
-    tree = ET.parse(xmlFile)
+# open a file for writing
 
-    # get root element 
-    root = tree.getroot()
+Resident_data = open('/tmp/ResidentData.csv', 'w')
 
-    # create empty list for news items 
-    people = []
+# create the csv writer object
 
-    # iterate news items 
-    for item in root.findall('./channel/item'):
+csvwriter = csv.writer(Resident_data)
+resident_head = []
 
-        # empty news dictionary 
-        news = {}
+count = 0
+for member in root.findall('Resident'):
+    resident = []
+    address_list = []
+    if count == 0:
+        name = member.find('Name').tag
+        resident_head.append(name)
+        PhoneNumber = member.find('PhoneNumber').tag
+        resident_head.append(PhoneNumber)
+        EmailAddress = member.find('EmailAddress').tag
+        resident_head.append(EmailAddress)
+        Address = member[3].tag
+        resident_head.append(Address)
+        csvwriter.writerow(resident_head)
+        count = count + 1
 
-        # iterate child elements of item 
-        for child in item:
-            news[child.tag] = child.text.encode('utf8')
-
-        # append news dictionary to news items list
-        people.append(news)
-
-        # return news items list
-    return people
-
-
-def saveToCSV(people, filename):
-    # specifying the fields for csv file
-    fields = ['first_name', 'last_name', 'start_year', 'end_year', 'birth_year', 'death_year', 'birth_country', 'notes']
-
-    # writing to csv file 
-    with open(filename, 'w') as csvFile:
-        # creating a csv dict writer object
-        writer = csv.DictWriter(csvFile, fieldnames=fields)
-
-        # writing headers (field names) 
-        writer.writeheader()
-
-        # writing data rows 
-        writer.writerows(people)
-
-
-def main():
-    # parse xml file 
-    people = parseXML('../xml/people.xml')
-
-    # store news items in a csv file 
-    saveToCSV(people, 'people.csv')
-
-
-if __name__ == "__main__":
-    # calling main function
-    main()
+    name = member.find('Name').text
+    resident.append(name)
+    PhoneNumber = member.find('PhoneNumber').text
+    resident.append(PhoneNumber)
+    EmailAddress = member.find('EmailAddress').text
+    resident.append(EmailAddress)
+    Address = member[3][0].text
+    address_list.append(Address)
+    City = member[3][1].text
+    address_list.append(City)
+    StateCode = member[3][2].text
+    address_list.append(StateCode)
+    PostalCode = member[3][3].text
+    address_list.append(PostalCode)
+    resident.append(address_list)
+    csvwriter.writerow(resident)
+Resident_data.close()
