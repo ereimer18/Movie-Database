@@ -12,7 +12,7 @@ def parseXML(xmlFile):
     root = tree.getroot()
 
     # create empty list for news items 
-    newsItems = []
+    people = []
 
     # iterate news items 
     for item in root.findall('./channel/item'):
@@ -22,44 +22,39 @@ def parseXML(xmlFile):
 
         # iterate child elements of item 
         for child in item:
+            news[child.tag] = child.text.encode('utf8')
 
-            # special checking for namespace object content:media 
-            if child.tag == '{http://search.yahoo.com/mrss/}content':
-                news['media'] = child.attrib['url']
-            else:
-                news[child.tag] = child.text.encode('utf8')
-
-                # append news dictionary to news items list
-        newsItems.append(news)
+        # append news dictionary to news items list
+        people.append(news)
 
         # return news items list
-    return newsItems
+    return people
 
 
-def savetoCSV(newsitems, filename):
+def saveToCSV(people, filename):
     # specifying the fields for csv file
-    fields = ['guid', 'title', 'pubDate', 'description', 'link', 'media']
+    fields = ['first_name', 'last_name', 'start_year', 'end_year', 'birth_year', 'death_year', 'birth_country', 'notes']
 
     # writing to csv file 
-    with open(filename, 'w') as csvfile:
+    with open(filename, 'w') as csvFile:
         # creating a csv dict writer object
-        writer = csv.DictWriter(csvfile, fieldnames=fields)
+        writer = csv.DictWriter(csvFile, fieldnames=fields)
 
         # writing headers (field names) 
         writer.writeheader()
 
         # writing data rows 
-        writer.writerows(newsitems)
+        writer.writerows(people)
 
 
 def main():
     # parse xml file 
-    people = parseXML('xml/people.xml')
+    people = parseXML('../xml/people.xml')
 
     # store news items in a csv file 
-    savetoCSV(people, 'people.csv')
+    saveToCSV(people, 'people.csv')
 
 
 if __name__ == "__main__":
     # calling main function
-    main() 
+    main()
