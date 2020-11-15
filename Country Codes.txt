@@ -1,0 +1,113 @@
+Am	USA
+Ar	Argentina
+Au	Australia
+
+Be	Belgium
+Bo	Bolivia
+Bz	Brazil
+Bu	Bulgaria
+Br	Great Britain
+Gb	Great Britain
+
+Ca	Canada
+Ch	China
+Cl	Chile
+Co	Columbia
+Cu	Cuba
+Cz	Czechoslovakia
+
+Da	Denmark	
+Du	Holland
+
+Eg	Egypt
+
+Fi	Finland 
+Fr	France
+
+Ge	Germany
+Gr	Greece
+
+Hk	Hong Kong	
+Hu	Hungary
+
+II	Indonesia
+In	India
+Ir	Ireland	
+Is	Israel
+It	Italy
+
+Ja	Japan
+Ko	South Korea
+Me	Mexico
+Ne	Netherlands
+No	Norway
+NZ	New Zealand
+
+Os	Austria
+Pe	Peru
+Po	Poland
+Pr	Puerto Rico
+Ph	Phillipines
+Rm	Romania
+Ru	Russia
+
+Sp	Spain
+SA	South-Africa
+Sw	Sweden
+Ta	Taiwan	
+Tu	Turkey
+Ve	Venezuela
+Vi	Vietnam
+Yu	Yugoslavia
+Zw	Switzerland
+
+Ct	''
+/'	''
+
+	Albania
+	Algeria
+	Atlantic
+	Bahamas
+	Bangladesh
+	Belize
+	Cambodia
+	Carribean
+	Congo
+	Costa Rica
+	Cuba
+	Dutch East Indies
+	Ethiopia
+	Indian Ocean
+	Haiti
+	Indonesia
+	Jamaica
+	Kenya
+	Korea
+	Libya
+	Malaysia
+	Mediteranean
+	Mongolia
+	Morocco
+	North Sea
+	Oceania
+	Pacific Ocean
+	Panama
+	Palestine
+	Romania
+	Rwanda
+	Saudi Arabia
+	Senegal
+	Tanzania
+	Togoland
+	Venezuela
+	Vietnam
+	
+	Africa
+	Asia
+	Africa
+	Europe
+	Internet
+	Universe
+	World
+
+	
