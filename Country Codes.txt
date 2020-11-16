@@ -45,6 +45,7 @@ NZ	New Zealand
 
 Os	Austria
 Pe	Peru
+Pg	Portugal
 Po	Poland
 Pr	Puerto Rico
 Ph	Phillipines
