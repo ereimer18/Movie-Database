@@ -5,7 +5,6 @@ Au	Australia
 Be	Belgium
 Bo	Bolivia
 Bz	Brazil
-Bu	Bulgaria
 Br	Great Britain
 Gb	Great Britain
 
