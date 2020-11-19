@@ -1,3 +1,4 @@
+person_id, stage_name, family_birth_name, given_first_name, given_last_name, gender, role_type, start_year, end_year
 3257,actor,WilliamAames,Willie Aames,Aames,William,M,,,,1960,,USA
 3258,actor,WilliamAbbott,Bud Abbott,Abbott,William,M,straight comedian,1939,1956,1895,1974,USA
 3259,actor,,Diahnne Abbott,,,F,sexy,1976,1982,,,USA
