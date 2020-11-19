@@ -5,7 +5,7 @@ def main():
     person_csv = open('../final-csv/people.csv')
     match_csv = open('../final-csv/matches.csv')
     temp_person_csv = open('../final-csv/temp_people.csv', 'w')
-    temp_actor_csv = open('../final-csv/temp_actor.csv', 'w')
+    temp_actor_csv = open('../final-csv/actor.csv', 'w')
 
     person_reader = csv.reader(person_csv, delimiter=',')
     actor_reader = csv.reader(actor_csv, delimiter=',')

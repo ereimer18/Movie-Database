@@ -35,7 +35,7 @@ def main():
 
 
 def match(people):
-    matcher = open('../final-csv/matches-movie-directs.csv', 'w')
+    matcher = open('../old-matches/matches-movie-directs.csv', 'w')
     match_writer = csv.writer(matcher, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     for person in people:
         actor_csv = open('../final-csv/directs.csv')

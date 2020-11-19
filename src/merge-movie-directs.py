@@ -3,7 +3,7 @@ import csv
 def main():
     actor_csv = open('../final-csv/directs.csv')
     person_csv = open('../final-csv/temp_people.csv')
-    match_csv = open('../final-csv/matches-movie-directs.csv')
+    match_csv = open('../old-matches/matches-movie-directs.csv')
     temp_person_csv = open('../final-csv/bs.csv', 'w')
     temp_actor_csv = open('../final-csv/temp_directs.csv', 'w')
 
