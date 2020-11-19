@@ -1,11 +1,11 @@
 import csv
 
 def main():
-    actor_csv = open('../final-csv/actor.csv')
-    person_csv = open('../final-csv/people.csv')
-    match_csv = open('../final-csv/matches.csv')
-    temp_person_csv = open('../final-csv/temp_people.csv', 'w')
-    temp_actor_csv = open('../final-csv/actor.csv', 'w')
+    actor_csv = open('../final-csv/produces.csv')
+    person_csv = open('../final-csv/temp_people.csv')
+    match_csv = open('../old-matches/matches-movie-produces.csv')
+    temp_person_csv = open('../final-csv/bs.csv', 'w')
+    temp_actor_csv = open('../final-csv/temp_produces.csv', 'w')
 
     person_reader = csv.reader(person_csv, delimiter=',')
     actor_reader = csv.reader(actor_csv, delimiter=',')
@@ -34,8 +34,8 @@ def main():
     # assign serial to persons
     for person in person_reader:
         if person_count > 0:
-            p_name = person[0] + person[1]
-            person_write = [serial, p_name, "person"] + person
+            p_name = person[1]
+            person_write = [person[0], p_name]
             serial += 1
             people.append(person_write)
             person_match.append(person[1])
@@ -47,28 +47,26 @@ def main():
             print(actor_count)
 
         if actor_count > 0:
-            a_name = actor[2] + actor[1]
+            a_name = actor[1]
 
             # get serial if exists
             if a_name in actor_match:
                 done = False
                 for person in people:
-                    if not done and matches[actor_match.index(a_name)] in person:
-                        actor_write = [person[0], "actor", a_name] + actor
+                    if not done and matches[actor_match.index(a_name)][1] in person:
+                        actor_write = [person[0], "made_by", a_name] + actor
                         actors.append(actor_write)
                         done = True
 
             # add if doesn't exist
-            else:
-                actor_write = [serial, "actor", a_name] + actor
-                serial += 1
-                people.append(actor_write)
-                actors.append(actor_write)
+            # else:
+            #     actor_write = [serial, "made_by", a_name] + actor
+            #     serial += 1
+            #     people.append(actor_write)
+            #     actors.append(actor_write)
         actor_count += 1
 
     # write files
-    for person in people:
-        person_writer.writerow(person)
     for actor in actors:
         actor_writer.writerow(actor)
 
