@@ -23,6 +23,7 @@ def main():
     actor_match = []
     person_match = []
 
+    # get matches
     for m in match_reader:
         print(m)
         aname = m[0]
@@ -30,6 +31,7 @@ def main():
         matches.append([aname, pname])
         actor_match.append(m[0])
 
+    # assign serial to persons
     for person in person_reader:
         if person_count > 0:
             p_name = person[0] + person[1]
@@ -39,6 +41,7 @@ def main():
             person_match.append(person[1])
         person_count += 1
 
+    # merge actors
     for actor in actor_reader:
         if actor_count % 10000:
             print(actor_count)
@@ -46,6 +49,7 @@ def main():
         if actor_count > 0:
             a_name = actor[2] + actor[1]
 
+            # get serial if exists
             if a_name in actor_match:
                 done = False
                 for person in people:
@@ -53,6 +57,8 @@ def main():
                         actor_write = [person[0], "actor", a_name] + actor
                         actors.append(actor_write)
                         done = True
+
+            # add if doesn't exist
             else:
                 actor_write = [serial, "actor", a_name] + actor
                 serial += 1
@@ -60,6 +66,7 @@ def main():
                 actors.append(actor_write)
         actor_count += 1
 
+    # write files
     for person in people:
         person_writer.writerow(person)
     for actor in actors:
