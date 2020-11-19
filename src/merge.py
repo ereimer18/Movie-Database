@@ -25,6 +25,7 @@ def main():
     extraneous = []
 
     for m in match_reader:
+        print(m)
         name = m[0]
         pname = m[1]
         matches.append(name)
